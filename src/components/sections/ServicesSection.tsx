@@ -27,12 +27,28 @@ export default function ServicesSection() {
           완제 무료 서비스중!
         </p>
         <div
-          className="w-full cursor-grab overflow-hidden select-none"
+          className="w-full overflow-hidden"
           style={{
             msOverflowStyle: "none",
             scrollbarWidth: "none",
           }}
           onMouseDown={(e) => {
+            // Check if the clicked element is text or within a text element
+            const target = e.target as HTMLElement;
+            const isTextElement =
+              target.tagName === "P" ||
+              target.tagName === "H1" ||
+              target.tagName === "H2" ||
+              target.tagName === "H3" ||
+              target.tagName === "H4" ||
+              target.tagName === "SPAN";
+            const isWithinServiceCard = target.closest(".service-card");
+
+            // Don't start drag if clicking on text elements within service cards
+            if (isTextElement && isWithinServiceCard) {
+              return;
+            }
+
             const container = e.currentTarget.querySelector(
               ".scroll-container"
             ) as HTMLElement;

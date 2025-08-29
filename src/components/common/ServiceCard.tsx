@@ -16,7 +16,7 @@ export default function ServiceCard({
   subContent: string;
 }) {
   return (
-    <div className="flex h-[31.25rem] w-[18.75rem] flex-col rounded-[16px] bg-white p-6">
+    <div className="service-card flex h-[31.25rem] w-[18.75rem] flex-col rounded-[16px] bg-white p-6">
       {/* Title */}
       <div className="border-b border-gray-100 pb-6">
         <h2 className="text-xl font-medium">{title}</h2>
